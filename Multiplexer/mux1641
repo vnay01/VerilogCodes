@@ -1,0 +1,80 @@
+#! /usr/local/iverilog/bin/vvp
+:ivl_version "11.0 (devel)" "(s20150603-642-g3bdb50da)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "vhdl_sys";
+:vpi_module "vhdl_textio";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0000000001014c20 .scope module, "mux16to1" "mux16to1" 2 9;
+ .timescale 0 0;
+    .port_info 0 /INPUT 16 "in";
+    .port_info 1 /INPUT 4 "sel";
+    .port_info 2 /OUTPUT 1 "out";
+o0000000001017538 .functor BUFZ 16, C4<zzzzzzzzzzzzzzzz>; HiZ drive
+v0000000001009680_0 .net "in", 15 0, o0000000001017538;  0 drivers
+v0000000001009720_0 .net "out", 0 0, L_00000000010109c0;  1 drivers
+o0000000001017568 .functor BUFZ 4, C4<zzzz>; HiZ drive
+v0000000001009860_0 .net "sel", 3 0, o0000000001017568;  0 drivers
+v0000000001009900_0 .net "t", 3 0, L_00000000010113c0;  1 drivers
+L_0000000001009040 .part o0000000001017538, 0, 4;
+L_0000000001008c80 .part o0000000001017568, 0, 2;
+L_0000000001011500 .part o0000000001017538, 4, 4;
+L_0000000001010e20 .part o0000000001017568, 0, 2;
+L_0000000001011c80 .part o0000000001017538, 8, 4;
+L_0000000001011780 .part o0000000001017568, 0, 2;
+L_0000000001011960 .part o0000000001017538, 12, 4;
+L_0000000001011a00 .part o0000000001017568, 0, 2;
+L_00000000010113c0 .concat8 [ 1 1 1 1], L_0000000001008be0, L_0000000001008dc0, L_00000000010125e0, L_0000000001010d80;
+L_0000000001010c40 .part o0000000001017568, 2, 2;
+S_00000000010d67e0 .scope module, "M0" "mux4to1" 2 15, 2 2 0, S_0000000001014c20;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "in";
+    .port_info 1 /INPUT 2 "sel";
+    .port_info 2 /OUTPUT 1 "out";
+v0000000001009220_0 .net "in", 3 0, L_0000000001009040;  1 drivers
+v0000000001009180_0 .net "out", 0 0, L_0000000001008be0;  1 drivers
+v00000000010092c0_0 .net "sel", 1 0, L_0000000001008c80;  1 drivers
+L_0000000001008be0 .part/v L_0000000001009040, L_0000000001008c80, 1;
+S_00000000010d6970 .scope module, "M1" "mux4to1" 2 16, 2 2 0, S_0000000001014c20;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "in";
+    .port_info 1 /INPUT 2 "sel";
+    .port_info 2 /OUTPUT 1 "out";
+v0000000001009540_0 .net "in", 3 0, L_0000000001011500;  1 drivers
+v0000000001008d20_0 .net "out", 0 0, L_0000000001008dc0;  1 drivers
+v0000000001008a00_0 .net "sel", 1 0, L_0000000001010e20;  1 drivers
+L_0000000001008dc0 .part/v L_0000000001011500, L_0000000001010e20, 1;
+S_0000000001010240 .scope module, "M2" "mux4to1" 2 17, 2 2 0, S_0000000001014c20;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "in";
+    .port_info 1 /INPUT 2 "sel";
+    .port_info 2 /OUTPUT 1 "out";
+v00000000010090e0_0 .net "in", 3 0, L_0000000001011c80;  1 drivers
+v0000000001008aa0_0 .net "out", 0 0, L_00000000010125e0;  1 drivers
+v0000000001008fa0_0 .net "sel", 1 0, L_0000000001011780;  1 drivers
+L_00000000010125e0 .part/v L_0000000001011c80, L_0000000001011780, 1;
+S_00000000010103d0 .scope module, "M3" "mux4to1" 2 18, 2 2 0, S_0000000001014c20;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "in";
+    .port_info 1 /INPUT 2 "sel";
+    .port_info 2 /OUTPUT 1 "out";
+v00000000010095e0_0 .net "in", 3 0, L_0000000001011960;  1 drivers
+v0000000001009360_0 .net "out", 0 0, L_0000000001010d80;  1 drivers
+v0000000001008b40_0 .net "sel", 1 0, L_0000000001011a00;  1 drivers
+L_0000000001010d80 .part/v L_0000000001011960, L_0000000001011a00, 1;
+S_0000000001010560 .scope module, "M4" "mux4to1" 2 19, 2 2 0, S_0000000001014c20;
+ .timescale 0 0;
+    .port_info 0 /INPUT 4 "in";
+    .port_info 1 /INPUT 2 "sel";
+    .port_info 2 /OUTPUT 1 "out";
+v0000000001009400_0 .net "in", 3 0, L_00000000010113c0;  alias, 1 drivers
+v00000000010097c0_0 .net "out", 0 0, L_00000000010109c0;  alias, 1 drivers
+v0000000001008f00_0 .net "sel", 1 0, L_0000000001010c40;  1 drivers
+L_00000000010109c0 .part/v L_00000000010113c0, L_0000000001010c40, 1;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "mux1641.v";

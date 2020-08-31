@@ -1,0 +1,68 @@
+$date
+	Fri Aug 28 19:09:11 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module testbenchdecoder $end
+$var wire 4 ! D [0:3] $end
+$var reg 1 " A $end
+$var reg 1 # B $end
+$var reg 1 $ E $end
+$scope module DUT $end
+$var wire 1 " A $end
+$var wire 1 % A_not $end
+$var wire 1 # B $end
+$var wire 1 & B_not $end
+$var wire 1 $ E $end
+$var wire 1 ' E_not $end
+$var wire 4 ( D [0:3] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx (
+x'
+x&
+x%
+x$
+x#
+x"
+bx !
+$end
+#5
+1'
+1&
+1%
+b1000 !
+b1000 (
+0$
+0#
+0"
+#10
+0&
+b100 !
+b100 (
+1#
+#15
+1&
+b10 !
+b10 (
+0%
+0#
+1"
+#20
+0&
+b1 !
+b1 (
+1#
+#25
+b0 !
+b0 (
+0'
+1$
+#30
