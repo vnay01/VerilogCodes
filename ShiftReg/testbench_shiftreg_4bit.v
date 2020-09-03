@@ -20,7 +20,8 @@ always #5 clk =~clk;  // This line toggles the clock signal between 0 and 1 ever
 initial
 	begin
 		#2;
-		repeat(2)  // Don't know as of yet what this is supposed to do!! Will follow up later
+		repeat(2) // repeat the block for 2 times
+			
 		begin
 			#10 in=0;
 			#10 in = 0;
