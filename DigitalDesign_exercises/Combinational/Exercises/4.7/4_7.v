@@ -9,7 +9,7 @@ endmodule
 module testbench;
 	wire [3:0]a;
 	reg w,x,y,z;
-// Instantiate a DUT
+// Instantiate a DUT of the module- Port Order connection 
 gray_to_bin g2b(w,x,y,z,a);
 
 // Stimulus
@@ -18,7 +18,7 @@ initial
 		$dumpfile("gray2bin.vcd");
 	    $dumpvars(0,testbench);
 		$monitor("time=",$time,"w=%b,x=%b,y=%b,z=%b,a=%4b",w,x,y,z,a);
-		//case generation - using concatnation
+		//case generation - using concatenation
 		#5 {w,x,y,z}=4'b0000;
 		#5 {w,x,y,z}=4'b0001;
 		#5 {w,x,y,z}=4'b0011;
