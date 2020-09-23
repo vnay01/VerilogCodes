@@ -1,0 +1,60 @@
+$date
+	Wed Sep 23 16:52:34 2020
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module testbench $end
+$var wire 1 ! Q_bar $end
+$var wire 1 " Q $end
+$var reg 1 # D $end
+$var reg 1 $ clk $end
+$var reg 2 % i [1:0] $end
+$var reg 1 & reset $end
+$scope module Dff $end
+$var wire 1 # D $end
+$var wire 1 " Q $end
+$var wire 1 ! Q_bar $end
+$var wire 1 $ clk $end
+$var wire 1 & reset $end
+$var wire 1 ' rst $end
+$var wire 1 ( t1 $end
+$var wire 1 ) t2 $end
+$var wire 1 * t3 $end
+$var wire 1 + t4 $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+x+
+x*
+x)
+x(
+z'
+x&
+bx %
+x$
+x#
+x"
+x!
+$end
+#5
+1&
+1+
+0#
+b0 %
+#10
+x+
+1#
+b1 %
+#15
+1+
+0#
+b10 %
+#20
+b11 %
+#120
