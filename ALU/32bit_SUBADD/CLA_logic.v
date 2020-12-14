@@ -8,34 +8,34 @@ module carry_look_ahead (
 	// refer eqn 1 through eqn 31 in the theory part for details.
 	initial
 	begin
-assign Cint[0]=C0;
+assign Cint[0]<=C0;
 
-assign Cint[1]= ((carry_gen[0])|
+assign Cint[1]<= ((carry_gen[0])|
 				(prop[0]&C0));
 
-assign Cint[2]= ((carry_gen[1])|
+assign Cint[2]<= ((carry_gen[1])|
 				(prop[1]&carry_gen[0])|
 				(prop[1]&prop[0]&C0));
 
-assign Cint[3]= ((carry_gen[2])|
+assign Cint[3]<= ((carry_gen[2])|
 				(prop[2]&carry_gen[1])|
 				(prop[2]&prop[1]&carry_gen[0])|
 				(prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[4]= ((carry_gen[3])|
+assign Cint[4]<= ((carry_gen[3])|
 				(prop[3]&carry_gen[2])|
 				(prop[3]&prop[2]&carry_gen[1])|
 				(prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[5]= ((carry_gen[4])|
+assign Cint[5]<= ((carry_gen[4])|
 				(prop[4]&carry_gen[3])|
 				(prop[4]&prop[3]&carry_gen[2])|
 				(prop[4]&prop[3]&prop[2]&carry_gen[1])|
 				(prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[6]= ((carry_gen[5])|
+assign Cint[6]<= ((carry_gen[5])|
 				(prop[5]&carry_gen[4])|
 				(prop[5]&prop[4]&carry_gen[3])|
 				(prop[5]&prop[4]&prop[3]&carry_gen[2])|
@@ -43,7 +43,7 @@ assign Cint[6]= ((carry_gen[5])|
 				(prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[7]= ((carry_gen[6])|
+assign Cint[7]<= ((carry_gen[6])|
 				(prop[6]&carry_gen[5])|
 				(prop[6]&prop[5]&carry_gen[4])|
 				(prop[6]&prop[5]&prop[4]&carry_gen[3])|
@@ -52,7 +52,7 @@ assign Cint[7]= ((carry_gen[6])|
 				(prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[8]= ((carry_gen[7])|
+assign Cint[8]<= ((carry_gen[7])|
 				(prop[7]&carry_gen[6])|
 				(prop[7]&prop[6]&carry_gen[5])|
 				(prop[7]&prop[6]&prop[5]&carry_gen[4])|
@@ -62,7 +62,7 @@ assign Cint[8]= ((carry_gen[7])|
 				(prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[9]= ((carry_gen[8])|
+assign Cint[9]<= ((carry_gen[8])|
 				(prop[8]&carry_gen[7])|
 				(prop[8]&prop[7]&carry_gen[6])|
 				(prop[8]&prop[7]&prop[6]&carry_gen[5])|
@@ -73,7 +73,7 @@ assign Cint[9]= ((carry_gen[8])|
 				(prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[10]=((carry_gen[9])|
+assign Cint[10]<=((carry_gen[9])|
 				(prop[9]&carry_gen[8])|
 				(prop[9]&prop[8]&carry_gen[7])|
 				(prop[9]&prop[8]&prop[7]&carry_gen[6])|
@@ -85,7 +85,7 @@ assign Cint[10]=((carry_gen[9])|
 				(prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[11]=((carry_gen[10])|
+assign Cint[11]<=((carry_gen[10])|
 				(prop[10]&carry_gen[9])|
 				(prop[10]&prop[9]&carry_gen[8])|
 				(prop[10]&prop[9]&prop[8]&carry_gen[7])|
@@ -98,7 +98,7 @@ assign Cint[11]=((carry_gen[10])|
 				(prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[12]=((carry_gen[11])|
+assign Cint[12]<=((carry_gen[11])|
 				(prop[11]&carry_gen[10])|
 				(prop[11]&prop[10]&carry_gen[9])|
 				(prop[11]&prop[10]&prop[9]&carry_gen[8])|
@@ -112,7 +112,7 @@ assign Cint[12]=((carry_gen[11])|
 				(prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[13]=((carry_gen[12])|
+assign Cint[13]<=((carry_gen[12])|
 				(prop[12]&carry_gen[11])|
 				(prop[12]&prop[11]&carry_gen[10])|
 				(prop[12]&prop[11]&prop[10]&carry_gen[9])|
@@ -127,7 +127,7 @@ assign Cint[13]=((carry_gen[12])|
 				(prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[14]=((carry_gen[13])|
+assign Cint[14]<=((carry_gen[13])|
 				(prop[13]&carry_gen[12])|
 				(prop[13]&prop[12]&carry_gen[11])|
 				(prop[13]&prop[12]&prop[11]&carry_gen[10])|
@@ -142,7 +142,7 @@ assign Cint[14]=((carry_gen[13])|
 				(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&carry_gen[1])|
 				(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
-assign Cint[15]=((carry_gen[14])|
+assign Cint[15]<=((carry_gen[14])|
 				(prop[14]&carry_gen[13])|
 				(prop[14]&prop[13]&carry_gen[12])|
 				(prop[14]&prop[13]&prop[12]&carry_gen[11])|
@@ -158,7 +158,7 @@ assign Cint[15]=((carry_gen[14])|
 				(prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&carry_gen[1])|
 				(prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
-assign Cint[16]=((carry_gen[15])|
+assign Cint[16]<=((carry_gen[15])|
 				(prop[15]&carry_gen[14])|
 				(prop[15]&prop[14]&carry_gen[13])|
 				(prop[15]&prop[14]&prop[13]&carry_gen[12])|
@@ -175,7 +175,7 @@ assign Cint[16]=((carry_gen[15])|
 				(prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&carry_gen[1])|
 				(prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
-assign Cint[17]=((carry_gen[16])|
+assign Cint[17]<=((carry_gen[16])|
 				(prop[16]&carry_gen[15])|
 				(prop[16]&prop[15]&carry_gen[14])|
 				(prop[16]&prop[15]&prop[14]&prop[13]&carry_gen[12])|
@@ -192,7 +192,7 @@ assign Cint[17]=((carry_gen[16])|
 				(prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&carry_gen[1])|
 				(prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[16]&prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
-assign Cint[18]=((carry_gen[17])|
+assign Cint[18]<=((carry_gen[17])|
 				(prop[17]&carry_gen[16])|
 				(prop[17]&prop[16]&carry_gen[15])|
 				(prop[17]&prop[16]&prop[15]&carry_gen[14])|
@@ -210,7 +210,7 @@ assign Cint[18]=((carry_gen[17])|
 				(prop[17]&prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&carry_gen[1])|
 				(prop[17]&prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[17]&prop[16]&prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
-assign Cint[19]=((carry_gen[18])|
+assign Cint[19]<=((carry_gen[18])|
 				(prop[18]&carry_gen[17])|
 				(prop[18]&prop[17]&carry_gen[16])|
 				(prop[18]&prop[17]&prop[16]&carry_gen[15])|
@@ -230,7 +230,7 @@ assign Cint[19]=((carry_gen[18])|
 				(prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[20]=((carry_gen[19])|
+assign Cint[20]<=((carry_gen[19])|
 				(prop[19]&carry_gen[18])|
 				(prop[19]&prop[18]&carry_gen[17])|
 				(prop[19]&prop[18]&prop[17]&carry_gen[16])|
@@ -251,7 +251,7 @@ assign Cint[20]=((carry_gen[19])|
 				(prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[21]=((carry_gen[20])|
+assign Cint[21]<=((carry_gen[20])|
 				(prop[20]&carry_gen[19])|
 				(prop[20]&prop[19]&carry_gen[18])|
 				(prop[20]&prop[19]&prop[18]&carry_gen[17])|
@@ -273,7 +273,7 @@ assign Cint[21]=((carry_gen[20])|
 				(prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[22]=((carry_gen[21])|
+assign Cint[22]<=((carry_gen[21])|
 				(prop[21]&carry_gen[20])|
 				(prop[21]&prop[20]&carry_gen[19])|
 				(prop[21]&prop[20]&prop[19]&carry_gen[18])|
@@ -296,7 +296,7 @@ assign Cint[22]=((carry_gen[21])|
 				(prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[23]=((carry_gen[22])|
+assign Cint[23]<=((carry_gen[22])|
 				(prop[22]&carry_gen[21])|
 				(prop[22]&prop[21]&carry_gen[20])|
 				(prop[22]&prop[21]&prop[20]&carry_gen[19])|
@@ -320,7 +320,7 @@ assign Cint[23]=((carry_gen[22])|
 				(prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[24]=((carry_gen[23])|
+assign Cint[24]<=((carry_gen[23])|
 				(prop[23]&carry_gen[22])|
 				(prop[23]&prop[22]&carry_gen[21])|
 				(prop[23]&prop[22]&prop[21]&carry_gen[20])|
@@ -345,7 +345,7 @@ assign Cint[24]=((carry_gen[23])|
 				(prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[25]=((carry_gen[24])|
+assign Cint[25]<=((carry_gen[24])|
 				(prop[24]&carry_gen[23])|
 				(prop[24]&prop[23]&carry_gen[22])|
 				(prop[24]&prop[23]&prop[22]&carry_gen[21])|
@@ -371,7 +371,7 @@ assign Cint[25]=((carry_gen[24])|
 				(prop[24]&prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[24]&prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[26]=((carry_gen[25])|
+assign Cint[26]<=((carry_gen[25])|
 				(prop[25]&carry_gen[24])|
 				(prop[25]&prop[24]&carry_gen[23])|
 				(prop[25]&prop[24]&prop[23]&carry_gen[22])|
@@ -399,7 +399,7 @@ assign Cint[26]=((carry_gen[25])|
 				(prop[25]&prop[24]&prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[25]&prop[24]&prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[27]=((carry_gen[26])|
+assign Cint[27]<=((carry_gen[26])|
 				(prop[26]&carry_gen[25])|
 				(prop[26]&prop[25]&carry_gen[24])|
 				(prop[26]&prop[25]&prop[24]&carry_gen[23])|
@@ -428,7 +428,7 @@ assign Cint[27]=((carry_gen[26])|
 				(prop[26]&prop[25]&prop[24]&prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[26]&prop[25]&prop[24]&prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[28]=((carry_gen[27])|
+assign Cint[28]<=((carry_gen[27])|
 				(prop[27]&carry_gen[26])|
 				(prop[27]&prop[26]&carry_gen[25])|
 				(prop[27]&prop[27]&prop[26]&prop[25]&carry_gen[24])|
@@ -458,7 +458,7 @@ assign Cint[28]=((carry_gen[27])|
 				(prop[27]&prop[26]&prop[25]&prop[24]&prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[27]&prop[26]&prop[25]&prop[24]&prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[29]=((carry_gen[28])|
+assign Cint[29]<=((carry_gen[28])|
 				(prop[28]&carry_gen[27])|
 				(prop[28]&prop[27]&carry_gen[26])|
 				(prop[28]&prop[27]&prop[26]&carry_gen[25])|
@@ -489,7 +489,7 @@ assign Cint[29]=((carry_gen[28])|
 				(prop[28]&prop[27]&prop[26]&prop[25]&prop[24]&prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[28]&prop[27]&prop[26]&prop[25]&prop[24]&prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[30]=((carry_gen[29])|	
+assign Cint[30]<=((carry_gen[29])|	
 				(prop[29]&carry_gen[28])|
 				(prop[29]&prop[28]&carry_gen[27])|
 				(prop[29]&prop[28]&prop[27]&carry_gen[26])|
@@ -521,7 +521,7 @@ assign Cint[30]=((carry_gen[29])|
 				(prop[29]&prop[28]&prop[27]&prop[26]&prop[25]&prop[24]&prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[29]&prop[28]&prop[27]&prop[26]&prop[25]&prop[24]&prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[31]=((carry_gen[30])|
+assign Cint[31]<=((carry_gen[30])|
 				(prop[30]&carry_gen[29])|
 				(prop[30]&prop[29]&carry_gen[28])|
 				(prop[30]&prop[29]&prop[28]&carry_gen[27])|
@@ -554,7 +554,7 @@ assign Cint[31]=((carry_gen[30])|
 				(prop[30]&prop[29]&prop[28]&prop[27]&prop[26]&prop[25]&prop[24]&prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&carry_gen[0])|
 				(prop[30]&prop[29]&prop[28]&prop[27]&prop[26]&prop[25]&prop[24]&prop[23]&prop[22]&prop[21]&prop[20]&prop[19]&prop[18]&prop[17]&prop[16]&prop[15]&prop[14]&(prop[13]&prop[12]&prop[11]&prop[10]&prop[9]&prop[8]&prop[7]&prop[6]&prop[5]&prop[4]&prop[3]&prop[2]&prop[1]&prop[0]&C0));
 
-assign Cint[32]=((carry_gen[31])|
+assign Cint[32]<=((carry_gen[31])|
 				(prop[31]&carry_gen[30])|
 				(prop[31]&prop[30]&carry_gen[29])|
 				(prop[31]&prop[30]&prop[29]&carry_gen[28])|
