@@ -32,7 +32,8 @@ parameter word_length = data_width;
                   assign low_val = 1'b0;
                   
 // Internal wires
-wire [2*data_width-1 : 0] mult_out;
+wire [2*data_width-1 : 0] w_mult_out;
+reg [2*data_width : 0] w_mult;
 reg [2*data_width : 0] add_feed_back;
 wire [2*data_width : 0] w_output_num;
 
@@ -44,14 +45,14 @@ wire [2*data_width : 0] w_output_num;
                            .enable(enable),
                            .num_1(num_1),
                            .num_2(num_2),
-                           .out_num(mult_out)
+                           .out_num(w_mult_out)
                          );
                     
 // Adder unit
    adder #(2*data_width+1) a_0( .clk(clk),
                               .reset(reset),
                               .enable(enable),
-                              .num_1(mult_out),
+                              .num_1(w_mult),
                               .num_2(add_feed_back),
                               .out_num(w_output_num)
                             );
@@ -63,9 +64,11 @@ wire [2*data_width : 0] w_output_num;
     add_feed_back <= w_output_num;
     end             
 
-// Connect output with
+// Connect output
 always@*
-    begin
+    begin    
+    w_mult = {word_length{low_val}}|w_mult_out; // Bitwise ORing removes 'Z' state of MSB
+    
     output_num = w_output_num;
     end
                   
