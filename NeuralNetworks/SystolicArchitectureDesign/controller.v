@@ -90,6 +90,7 @@ always@(*)
                 read_en_next <= 1'b1;           // enable memory blocks
                 rom_address_next = rom_address + 1;
                 ram_address_next = ram_address + 1;
+                
              
                 if(count==15)
                 begin
