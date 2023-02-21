@@ -20,11 +20,11 @@
 //////////////////////////////////////////////////////////////////////////////////
 `include "rom_dual_port.v"
 `include "controller.v"
-`include "rom_data_holder.v"
+`include "input_matrix.v"
 
 `define clockperiod 5
 
-module test_rom_data_holder(  );
+module testbench( );
                             
 //output [`data_width-1:0] dout1, dout2; 
                            
@@ -36,11 +36,14 @@ reg tb_reset;
 //reg [`mem_depth-1:0] addr_1;
 //reg [`mem_depth-1:0] addr_2;
 wire tb_read_en;
-wire  [`data_width-1:0] tb_data_1, tb_data_2; 
+wire  [`data_width*4-1:0] tb_data_1, tb_data_2; 
 wire [`mem_depth-1:0] tb_rom_address, tb_ram_address;  
 wire [`count_depth-1:0] tb_count;
-reg [`select - 1:0] tb_select_line;
+wire [`select - 1:0] tb_select_line;
+wire [`select:0] tb_bank_select_line;
 
+parameter data_bus_width = 2 * `data_width;
+wire [data_bus_width-1:0] tb_data_out;
 
 rom_dual_port rom_u_0(
                        .clk(tb_clk),
@@ -57,34 +60,40 @@ controller dut_01(
                     .count(tb_count),
                     .read_en(tb_read_en),
                     .rom_address(tb_rom_address),
-                    .ram_address(tb_ram_address)
-                        );
-rom_data_holder rom_dut1(
-                        .clk(tb_clk),
-                        .reset(tb_reset),
-                        .enable(tb_enable),
-                        .select_line(tb_select_line),
-                        .data_in(tb_data_1),
-                        .out_data(tb_out_data)
-                        );                        
+                    .ram_address(tb_ram_address),
+                    .bank_select_line(tb_bank_select_line),
+                    .select_line(tb_select_line)
+                    );
+                     
+input_mat_reg_bank dut_02(
+                .clk(tb_clk),
+                .reset(tb_reset),
+                .enable(tb_enable),
+                .bank_select_line(tb_bank_select_line[`select-1:0]),       
+                .select_line(tb_select_line),
+                .data_in(tb_data_1),
+                .data_out(tb_data_out)
+            );
+
 // stimulus - change the address every clock 10 ns ( i.e every 1 clock period )
 initial
 begin
     tb_clk = 1'b0;
     tb_reset = 1'b1;
     tb_enable = 1'b0;
-    tb_select_line = {`select{`low_val}}; 
+//    tb_select_line = {`select{`low_val}}; 
     
     #1 tb_reset = 1'b0;
        tb_enable = 1'b1;
-       tb_select_line = 8'h00;
+//       tb_select_line = 8'h00;
            
     #500 tb_enable = 1'b0;
        
     #100
     $stop;        
 
-end     
+end    
+ 
 // Simulate 100Mhz clock
 always
 #`clockperiod tb_clk <= ~tb_clk;
