@@ -4,10 +4,10 @@
 `define low_val 1'b0
 `define bank_depth 8
 `define data_width 8
-`define select 8
+`define select 3
 
 
-module rom_data_holder
+module coef_reg_bank
                     ( input clk, 
                       input reset,
                       input enable,
@@ -23,7 +23,7 @@ register_bank_8byte r_0
                     ( .clk(clk),
                       .reset(reset),
                       .enable(enable),
-                      .select_line(select_line[7:0]), 
+                      .select_line(select_line), 
                       .data_in(data_in),
                       .out_data(out_data)
                     );
