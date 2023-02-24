@@ -22,7 +22,6 @@ module register_bank_8byte
 parameter data_bus_width = `bank_depth * `data_width;
 // Sample input data
 reg [data_bus_width-1:0] sample_data_in;
-reg [`bank_depth-1:0] w_data_out;
 reg [`bank_depth-1:0] register_select;      // Not reduced to a 1 bit signal to maintain re-usability.
 
 

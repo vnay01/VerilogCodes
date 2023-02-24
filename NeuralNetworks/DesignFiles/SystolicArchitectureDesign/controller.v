@@ -100,10 +100,12 @@ always@(*)
                 next_state = READ; 
                 count_next = {`count_depth{`low_val}};
                 bank_select_line_next = {`select+1{`low_val}};
+                read_en_next <= 1'b1;           // enable memory blocks
                 end
         // READ state enables reading of matrix elements into registerbank of accelarator 
+        
         READ : begin 
-                read_en_next <= 1'b1;           // enable memory blocks
+//                read_en_next <= 1'b1;           // enable memory blocks
                 rom_address_next = rom_address + 1;     // reads RAM locations : latency 2 clk cyc
                 ram_address_next = ram_address + 1;     // reads ROM locations : latency 2 clk cyc
 
@@ -116,16 +118,7 @@ always@(*)
                         next_state = LOAD;
                         read_en_next = 1'b0;            // disable memory blocks
                 end
-                          
-
-/*
-                if(count==15)
-                begin
-                next_state = LOAD;              // goes to next state once all elements are read.
-                read_en_next = 1'b0;           // disable memory blocks after matrix is read
-                count_next = {`count_depth{`low_val}};
-                end
-*/                
+           
                 end      
                           
         LOAD : if(count!=20)

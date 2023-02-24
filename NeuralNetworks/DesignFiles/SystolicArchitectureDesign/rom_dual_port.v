@@ -9,6 +9,7 @@
 
 module rom_dual_port(
             clk,
+            enable,
             addr_1,
             addr_2, 
             data_1,
@@ -17,6 +18,7 @@ module rom_dual_port(
 
 // port direction
     input clk;
+    input enable;
     input [`mem_depth-1:0] addr_1;
     input [`mem_depth-1:0] addr_2;
     output reg [`data_width-1:0] data_1;
@@ -39,14 +41,14 @@ module rom_dual_port(
     wire [`data_width-1:0] loc7;
 // actual value being stored here
 // I will find a way to update this automatically. Maybe automatically
-    assign loc0 = 32'h5F5F5F5F;
-    assign loc1 = 32'h1A1A1A1A;
-    assign loc2 = 32'h2E2E2E2E;
-    assign loc3 = 32'hA5A5A5A5;
-    assign loc4 = 32'h123478A2;
-    assign loc5 = 32'h9C7B6A88;
-    assign loc6 = 32'hAFAFB4C5;
-    assign loc7 = 32'h13CF54AF;
+    assign loc0 = 32'h11112222;
+    assign loc1 = 32'h33334444;
+    assign loc2 = 32'h55556666;
+    assign loc3 = 32'h77778888;
+    assign loc4 = 32'h9999aaaa;
+    assign loc5 = 32'hbbbbcccc;
+    assign loc6 = 32'hddddeeee;
+    assign loc7 = 32'hffff0000;
 
 always@(loc0 or loc1 or loc2 or loc3 or loc4 or loc5 or loc6 or loc7 or addr_1 or addr_2) begin
     case(addr_1)

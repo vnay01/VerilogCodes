@@ -20,9 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 `include "rom_dual_port.v"
 `include "controller.v"
-`include "input_matrix.v"
+`include "input_mat_reg_bank.v"
 
-`define clockperiod 5
+`define clockperiod 5 
 
 module testbench( );
                             
@@ -53,7 +53,7 @@ rom_dual_port rom_u_0(
                        .data_2(tb_data_2) 
                         );
 
-controller dut_01(
+controller contr(
                     .clk(tb_clk),
                     .reset(tb_reset),
                     .enable(tb_enable),
@@ -65,10 +65,10 @@ controller dut_01(
                     .select_line(tb_select_line)
                     );
                      
-input_mat_reg_bank dut_02(
+input_mat_reg_bank input_reg_bank(
                 .clk(tb_clk),
                 .reset(tb_reset),
-                .enable(tb_enable),
+                .enable(tb_read_en),
                 .bank_select_line(tb_bank_select_line[`select-1:0]),       
                 .select_line(tb_select_line),
                 .data_in(tb_data_1),
@@ -87,7 +87,7 @@ begin
        tb_enable = 1'b1;
 //       tb_select_line = 8'h00;
            
-    #500 tb_enable = 1'b0;
+    #1000 tb_enable = 1'b0;
        
     #100
     $stop;        
