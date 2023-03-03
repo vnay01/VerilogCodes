@@ -18,18 +18,17 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
+`define num_width 8
 
-
-module mod3 #(parameter num_width = 8)
-            (num, reduce, ans );
+module mod3 (num, reduce, ans );
             
-            input [num_width-1 : 0]num;
-            input [num_width-1:0] reduce;
+            input [`num_width-1 : 0]num;
+            input [`num_width-1:0] reduce;
             
-            output reg [num_width - 1 :0] ans;
+            output reg [`num_width - 1 :0] ans;
 
 // Internal storage
-    reg [num_width-1:0] B;
+    reg [`num_width-1:0] B;
 // structure
     // Compare
     always@(*)
@@ -38,11 +37,13 @@ module mod3 #(parameter num_width = 8)
     else B = 0;
     end 
     
-    always_comb
+    always@(*)
     begin
-    ans <= num - B; 
+    ans <= num - B;
     end 
-
-
+// Non-synthesizable constructs
+initial begin
+    $display("Done...");
+end
 
 endmodule

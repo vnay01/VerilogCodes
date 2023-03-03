@@ -3,27 +3,41 @@
 // FSM based controller for 4-function ALU
 
 module alu_ctrl(
-				input clk, reset, button,
-				output reg [3:0] control				// control signal to activate ALU function
-					);
+				clk, reset, button,
+				control				// control signal to activate ALU function
+				);
 					
+
+// Port direction
+	input clk;
+	input reset;
+	input button;
+	output reg [3:0] control;				
 // Using enum to model states
 
-typedef enum logic[2:0] {IDLE, NUM1, NUM2, ADD, SUB, MUL, MOD3} state;
+localparam STATE_SIZE = 4;
+localparam IDLE = 3'd0,
+		   NUM1 = 3'd1,
+		   NUM2 = 3'd2,
+		   ADD = 3'd3,
+		   SUB = 3'd4,
+		   MUL = 3'd5,
+		   MOD3 = 3'd6,
+		   STATE_8_PLACEHOLDER = 3'd7;
 
-state current_state, next_state;
-					
-	always_ff@(posedge clk, posedge reset)						
-	begin: state_register
+	reg [STATE_SIZE-1:0] current_state, next_state;
+
+	always@(posedge clk, posedge reset)						
+	begin 
 		if (reset)
 			current_state <= IDLE;
 		else
 			current_state <= next_state;
-		end: state_register
+		end
 
 // State change logic
-	always_comb
-	begin: next_state_logic
+	always@(*)
+	begin
 		case(current_state)
 			
 			IDLE: if(button)
@@ -59,20 +73,23 @@ state current_state, next_state;
 				next_state <= ADD;
 				else
                 next_state <= current_state;
-                       				
-			default: 
-			   next_state <= current_state;
+			STATE_8_PLACEHOLDER:
+				next_state <= IDLE;
 			         
-		
 		endcase
-    end:next_state_logic
+	end
     
 // output based on state: MOORE machine
 	
-	always_comb
-	begin: control_signal
+	always@(*)
+	begin
 	case(current_state)
 		IDLE: control = 4'b0000;
+		/*
+		assert(property name;
+			@(posedge clk) test
+		endproperty)
+		*/
 		NUM1: control = 4'b0000;
 		NUM2: control = 4'b0000;
 		ADD : control = 4'b0001;
@@ -82,8 +99,11 @@ state current_state, next_state;
 //		WAT : control = 4'b1001;
 		default : control = 4'b0000;
 		endcase
-		end:control_signal
-		 
+		end
+
+		initial begin
+			$display("Done...");
+		end
 
 endmodule			
 								
