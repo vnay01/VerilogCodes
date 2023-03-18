@@ -1,0 +1,22 @@
+
+input clk, reset;
+
+input crc;
+input last;
+input data_in;
+input data_out;
+
+property p_encoder2;
+    @(posedge clk) (reset) && (last == 1'b1) |=> (data_out == 1'b0);
+endproperty
+
+property p_encoder1;
+    @(posedge clk) (reset && (!last) && crc && data_in) |=> (data_out == 1'b1);
+endproperty
+
+
+// Assert Property
+
+a_p_encoder2: assert property (p_encoder2);
+
+
