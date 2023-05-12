@@ -37,6 +37,7 @@ localparam IDLE = 3'd0,
 
 // State change logic
 	always@(*)
+	
 	begin
 		case(current_state)
 			

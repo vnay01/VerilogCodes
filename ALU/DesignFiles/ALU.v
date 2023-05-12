@@ -23,7 +23,7 @@ module ALU (
     
 ///Internal connections
 
-reg [`num_width-1 : 0] w_out_num;
+wire [`num_width-1 : 0] w_out_num;
 reg [`num_width-1 : 0] dummy_ans = 8'hFF;   
     
   

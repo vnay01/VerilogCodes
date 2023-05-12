@@ -31,7 +31,7 @@ module ALU_Top (
  reg w_clk;
  reg w_reset;
  reg w_button; 
- reg [3:0] w_opcode;
+ wire [3:0] w_opcode;
 
 // Module Instantiations
 alu_ctrl Controller(
