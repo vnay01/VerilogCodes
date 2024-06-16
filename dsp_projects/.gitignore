@@ -1,5 +1,14 @@
 vivado_project/
 
+*.jou
+*.log
+*.str
+
+*.xdc
+*.wdf
+*.wpc
+*.xpr
+
 vivado_hls/
 
 models/
