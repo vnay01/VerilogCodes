@@ -2,3 +2,5 @@ git_commands.sh
 git_commands.ps1
 /.vscode
 .DS_Store
+
+*.drawio
