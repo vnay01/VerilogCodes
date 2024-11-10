@@ -4,3 +4,13 @@ git_commands.ps1
 .DS_Store
 
 *.drawio
+
+# Ignore vivado generated files.
+vivado_project/
+
+# Ignore vitis project files
+vitis_project/
+
+# tool generated files
+
+*.gen*

@@ -35,13 +35,13 @@ module ps_top_wrapper(
 
     // Module instantiations
     ps_wrapper ps_wrapper_i (
-        .INTERRUPT_0_ack        (intr_ack),
-        .INTERRUPT_0_address    (32'h00000000),
+        .Interrupt_Ack_0        (intr_ack),
+        .Interrupt_Address_0    (32'h00000000),
         .INTERRUPT_0_interrupt  (external_intrp),
         .clk_out                (clk_out),
-        .led_8bits_tri_i        (led),
+        .led_8bits_tri_o        (led),
         .dcm_locked_0           (dcm_locked),
         .reset                  (ext_rst),
-        .sys_clock              (sys_clk)
+        .clk                    (sys_clk)
         );
 endmodule
