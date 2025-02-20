@@ -1,4 +1,4 @@
-`timescale 1ps/1fs
+`timescale 1ns/1ps
 /*
   File Created on: 2025-02-19 03:55:08
   Created By	 : Vinay Singh
@@ -19,7 +19,7 @@ module pe #(parameter INPUT_DATA_WIDTH =8,
 	input logic enable,
 	input logic [INPUT_DATA_WIDTH-1:0] a,	 
 	input logic [INPUT_DATA_WIDTH-1:0] b,
-	output logic [OUTPUT_DATA_WIDTH-1:0]c,	 
+	output logic [OUTPUT_DATA_WIDTH-1:0]accum_out,	 
 	output logic [INPUT_DATA_WIDTH-1:0] a_out,	 
 	output logic [INPUT_DATA_WIDTH-1:0] b_out
 );
@@ -27,6 +27,8 @@ module pe #(parameter INPUT_DATA_WIDTH =8,
 	// Internal signals
 	logic enable_reg;
 	logic[INPUT_DATA_WIDTH-1:0]a_reg, b_reg;
+    logic[INPUT_DATA_WIDTH-1:0]a_reg_2, b_reg_2;
+
 	logic[2*(INPUT_DATA_WIDTH)-1:0] mult_reg, mult_reg_nxt;
 	logic[OUTPUT_DATA_WIDTH-1:0] accumulator, accumulator_nxt;
 
@@ -35,14 +37,18 @@ module pe #(parameter INPUT_DATA_WIDTH =8,
 	always@(posedge clk or negedge rst_n)begin
 		if(!rst_n)begin
 			enable_reg <= 0;
-			a_reg<= 0;
-			b_reg<= 0;
-			mult_reg<= 0;
+			a_reg <= 0;
+			a_reg_2 <= 0;
+			b_reg <= 0;
+            b_reg_2 <= 0;
+			mult_reg <= 0;
 			accumulator <= 0;
 		end else begin
 		    enable_reg <= enable;
-			a_reg<= a;
-			b_reg<= b;
+			a_reg <= a;
+			a_reg_2 <= a_reg;			
+			b_reg <= b;
+			b_reg_2 <= b_reg;			
 			accumulator <= accumulator_nxt;
 			mult_reg <= mult_reg_nxt;
 		end
@@ -59,9 +65,9 @@ module pe #(parameter INPUT_DATA_WIDTH =8,
     end
     
     /* Output assignments */
-    assign a_out = a_reg;
-    assign b_out = b_reg;
-    assign c = accumulator;
+    assign a_out = a_reg_2;
+    assign b_out = b_reg_2;
+    assign accum_out = accumulator;
 
 endmodule
 

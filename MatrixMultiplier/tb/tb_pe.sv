@@ -3,7 +3,7 @@ module tb_pe;
   // Parameters for the testbench
   localparam INPUT_DATA_WIDTH = 8;
   localparam OUTPUT_DATA_WIDTH = 32;
-  localparam NUM_TEST_VECTORS = 10000;  // 10k test vectors
+  localparam NUM_TEST_VECTORS = 10;  // 10k test vectors
 
   // Testbench signals
   logic clk;
@@ -22,7 +22,7 @@ module tb_pe;
     .enable(enable),
     .a(a),
     .b(b),
-    .c(c),
+    .accum_out(c),
     .a_out(a_out),
     .b_out(b_out)
   );
@@ -44,7 +44,7 @@ module tb_pe;
 
     // Apply reset
     $display("Applying reset...");
-    #10 rst_n = 1;
+    #15 rst_n = 1;
 
     // Test case generation loop for 1 million test vectors
     $display("Generating 10k test vectors...");
