@@ -1,0 +1,20 @@
+# Files to ignore
+
+*.jou
+*.str
+*.xpr
+vivado_project/
+*.log
+*.pb
+work/
+work*/
+*.wdb
+.Xil/
+xsim*/
+*.cache/
+*.hw/
+*.ip_user_files/
+*.bin
+*.o
+*.so
+
