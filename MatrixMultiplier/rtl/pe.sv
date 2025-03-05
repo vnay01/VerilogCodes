@@ -9,6 +9,25 @@
 			   3. The result of mac operation is retained in an accumulator, which is also an output from the module.
   Comments	 : 
 
+
+  Synthesis report : target board BASYS3 board from Xilinx
+  
+  1. Slice Logic
+--------------
+
++-------------------------+------+-------+------------+-----------+-------+
+|        Site Type        | Used | Fixed | Prohibited | Available | Util% |
++-------------------------+------+-------+------------+-----------+-------+
+| Slice LUTs*             |  117 |     0 |          0 |     20800 |  0.56 |
+|   LUT as Logic          |  117 |     0 |          0 |     20800 |  0.56 |
+|   LUT as Memory         |    0 |     0 |          0 |      9600 |  0.00 |
+| Slice Registers         |   81 |     0 |          0 |     41600 |  0.19 |
+|   Register as Flip Flop |   81 |     0 |          0 |     41600 |  0.19 |
+|   Register as Latch     |    0 |     0 |          0 |     41600 |  0.00 |
+| F7 Muxes                |    0 |     0 |          0 |     16300 |  0.00 |
+| F8 Muxes                |    0 |     0 |          0 |      8150 |  0.00 |
++-------------------------+------+-------+------------+-----------+-------+
+
 */
 
 module pe #(parameter INPUT_DATA_WIDTH =8,

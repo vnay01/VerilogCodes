@@ -31,7 +31,9 @@ localparam NOF_ROWS_MATRIX_B = 8;
 localparam NOF_COLS_MATRIX_B = 8;
 
 // OUTPUT Matrix size
-localparam SIZE_OF_OUTPUT_MATRIX = (NOF_ROWS_MATRIX_A*NOF_COLS_MATRIX_B);
+localparam NOF_ROWS_MATRIX_C = NOF_ROWS_MATRIX_A;
+localparam NOF_COLS_MATRIX_C = NOF_COLS_MATRIX_B;
+localparam SIZE_OF_OUTPUT_MATRIX = (NOF_ROWS_MATRIX_C*NOF_COLS_MATRIX_C);
 // Data widths
 localparam INPUT_DATA_WIDTH = 8;
 localparam OUTPUT_DATA_WIDTH = 32;
