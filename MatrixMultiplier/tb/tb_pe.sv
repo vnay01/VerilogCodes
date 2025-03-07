@@ -1,9 +1,18 @@
+/*
+*
+	Engineer : Vinay Singh
+	Module   : tb_pe
+	Description: Stand-alone testbench for simulating processing engine.
+		     
+	*
+	* */
+
 module tb_pe;
 
   // Parameters for the testbench
   localparam INPUT_DATA_WIDTH = 8;
   localparam OUTPUT_DATA_WIDTH = 32;
-  localparam NUM_TEST_VECTORS = 10;  // 10k test vectors
+  localparam NUM_TEST_VECTORS = 10000;  // 10k test vectors
 
   // Testbench signals
   logic clk;
@@ -47,7 +56,7 @@ module tb_pe;
     #15 rst_n = 1;
 
     // Test case generation loop for 1 million test vectors
-    $display("Generating 10k test vectors...");
+    $display("Generating %d test vectors...", NUM_TEST_VECTORS);
     for (i = 0; i < NUM_TEST_VECTORS; i = i + 1) begin
       // Randomize the inputs
       a = $random & (2**INPUT_DATA_WIDTH - 1);  // Mask to 8 bits
@@ -58,14 +67,14 @@ module tb_pe;
       #10;
 
       // Display results every 10000 iterations for debugging purposes
-      if (i % 10000 == 0) begin
+      if (i % 10 == 0) begin
         $display("Test vector %0d: a = %d, b = %d, c = %d, a_out = %d, b_out = %d", 
                  i, a, b, c, a_out, b_out);
       end
     end
 
     // End the simulation after processing 1 million test vectors
-    $display("Completed 10k test vectors.");
+    $display("Completed %d test vectors.", NUM_TEST_VECTORS);
     $finish;
   end
 
