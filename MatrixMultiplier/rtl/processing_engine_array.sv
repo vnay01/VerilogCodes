@@ -31,6 +31,25 @@
                    
 */
 
+/* Synthesis report 
+    
+    +-------------------------+------+-------+------------+-----------+-------+
+    |        Site Type        | Used | Fixed | Prohibited | Available | Util% |
+    +-------------------------+------+-------+------------+-----------+-------+
+    | CLB LUTs*               | 6017 |     0 |          0 |    425280 |  1.41 |
+    |   LUT as Logic          | 6017 |     0 |          0 |    425280 |  1.41 |
+    |   LUT as Memory         |    0 |     0 |          0 |    213600 |  0.00 |
+    | CLB Registers           | 5136 |     0 |          0 |    850560 |  0.60 |
+    |   Register as Flip Flop | 5136 |     0 |          0 |    850560 |  0.60 |
+    |   Register as Latch     |    0 |     0 |          0 |    850560 |  0.00 |
+    | CARRY8                  |  640 |     0 |          0 |     53160 |  1.20 |
+    | F7 Muxes                |    0 |     0 |          0 |    212640 |  0.00 |
+    | F8 Muxes                |    0 |     0 |          0 |    106320 |  0.00 |
+    | F9 Muxes                |    0 |     0 |          0 |     53160 |  0.00 |
+    +-------------------------+------+-------+------------+-----------+-------+
+
+*/
+
 module processing_engine_array #(
     parameter INPUT_DATA_WIDTH = 8,
     parameter OUTPUT_DATA_WIDTH = 32,
