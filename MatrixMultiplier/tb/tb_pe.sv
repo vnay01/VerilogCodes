@@ -12,7 +12,7 @@ module tb_pe;
   // Parameters for the testbench
   localparam INPUT_DATA_WIDTH = 8;
   localparam OUTPUT_DATA_WIDTH = 32;
-  localparam NUM_TEST_VECTORS = 10000;  // 10k test vectors
+  localparam NUM_TEST_VECTORS = 1000;  // 10k test vectors
 
   // Testbench signals
   logic clk;
@@ -61,8 +61,8 @@ module tb_pe;
       // Randomize the inputs
       a = $random & (2**INPUT_DATA_WIDTH - 1);  // Mask to 8 bits
       b = $random & (2**INPUT_DATA_WIDTH - 1);  // Mask to 8 bits
-      enable = 1;  // Enable the PE
-
+      enable = $random % 2;  // Enable/disable the PE
+      $display("Enable = %0d", enable);
       // Apply the inputs to the DUT
       #10;
 

@@ -77,7 +77,7 @@ module pe #(parameter INPUT_DATA_WIDTH =8,
     always_comb begin
         accumulator_nxt = accumulator + mult_reg;
         mult_reg_nxt = 0;
-        if(enable_reg)begin
+        if(enable_reg)begin:multiply_when_enabled
 //            accumulator_nxt = accumulator + mult_reg;
             mult_reg_nxt = a_reg * b_reg;
         end
